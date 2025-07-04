@@ -1,3 +1,4 @@
+
 describe('Regression Tests', () => {
 
     it('Scenario 1 - Verify the manufacturers homepage URL contains expected text (allowing for dynamic ID)', () => {
