@@ -18,8 +18,7 @@ describe('Regression Tests', () => {
      * - Skips the survey pop-up if it appears.
      */
     beforeEach(() => {
-        cy.visit('https://source.thenbs.com'); // Go to NBS Source homepage
-        NBSHomepage.acceptCookies(); // Accept cookies if prompted
+        NBSHomepage.visitHomepageAndAcceptCookies(); // Visit homepage and accept cookies
         NBSHomepage.searchFor('Dyson'); // Search for 'Dyson'
         NBSHomepage.selectDysonResult(); // Click on the Dyson search result
         DysonHomepage.checkAndSkipSurvey(); // Skip survey if present
