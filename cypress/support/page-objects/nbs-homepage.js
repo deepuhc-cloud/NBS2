@@ -18,9 +18,14 @@ class NBSHomepage {
      * Clicks the "Accept All Cookies" button on the homepage.
      * This ensures cookies are accepted before running further tests.
      */
-    visitHomepageAndAcceptCookies() {
-        cy.visit('https://source.thenbs.com/'); // Visit the NBS Source homepage
-        cy.contains(this.acceptCookiesButton, 'Accept All Cookies').click();
+
+
+    visitNBSHomePageAndAcceptCookies() {
+        cy.visit('https://source.thenbs.com/', {
+            timeout: 50000
+        });
+
+        cy.get('#onetrust-accept-btn-handler').click();
     }
 
     /**

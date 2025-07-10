@@ -17,13 +17,14 @@ describe('Regression Tests', () => {
      * - Selects the Dyson result from the search results.
      * - Skips the survey pop-up if it appears.
      */
-    beforeEach(() => {
-        NBSHomepage.visitHomepageAndAcceptCookies(); // Visit homepage and accept cookies
+beforeEach(() => {
+        NBSHomepage.visitNBSHomePageAndAcceptCookies(); // Visit homepage and accept cookies
         NBSHomepage.searchFor('Dyson'); // Search for 'Dyson'
         NBSHomepage.selectDysonResult(); // Click on the Dyson search result
         DysonHomepage.checkAndSkipSurvey(); // Skip survey if present
     });
 
+  
     /**
      * Scenario 1
      * Verifies that the manufacturer's homepage URL contains the expected text.
@@ -87,6 +88,8 @@ describe('Regression Tests', () => {
     it('Scenario 8 -  Verify the Dyson navigation bar has the correct tabs and expected links', () => {
         DysonHomepage.verifyDysonNavigationBar();
     });
+
+    
 
 });
 
