@@ -19,6 +19,7 @@ class NBSHomepage {
      * This ensures cookies are accepted before running further tests.
      */
 acceptCookies() {
+    
     cy.contains(this.acceptCookiesButton, 'Accept All Cookies').click({ force: true });
 }
 
