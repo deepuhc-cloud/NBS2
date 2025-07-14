@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "description": "Deepaks NBS Regression Tests",
   "main": "index.js",
-    "scripts": {
+  "scripts": {
     "cypress:open": "cypress open",
     "cypress:run": "cypress run"
   },
   "author": "Deepak",
   "license": "ISC",
   "devDependencies": {
+    "axe-core": "^4.10.3",
     "cypress": "^14.4.1",
     "cypress-axe": "^1.6.0",
     "cypress-image-snapshot": "^4.0.1"
