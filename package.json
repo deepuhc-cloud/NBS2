@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Deepaks NBS Regression Tests",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "author": "Deepak",
   "license": "ISC",
