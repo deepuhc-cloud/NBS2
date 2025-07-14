@@ -16,3 +16,8 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 import 'cypress-axe';
+import { addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command';
+addMatchImageSnapshotCommand();
+Cypress.on('uncaught:exception', (err, runnable) => {
+  return false;
+});

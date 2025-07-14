@@ -60,10 +60,7 @@ describe('Regression Tests', () => {
             .should('have.attr', 'href', 'tel:08003457788', { timeout: 10000 })
             .and('contain', '08003457788');
     });
-
-
-
-     
+ 
     it('# 3 - Verify the h1 title text on the page is as expected', () => {
         cy.visit('https://source.thenbs.com/', {
             timeout: 50000
@@ -91,8 +88,6 @@ describe('Regression Tests', () => {
          
         cy.get('h1').should('have.text', 'Dyson');
     });
-
-
 
       it('# 4 - Verify the href attribute of the source logo is as expected', () => {
         cy.visit('https://source.thenbs.com/', {

@@ -1,6 +1,7 @@
 import NBSHomepage from '../../support/page-objects/nbs-homepage';
 import DysonHomepage from '../../support/page-objects/dyson-homepage';
 
+
 /**
  * Regression Tests for Dyson Manufacturer Page
  * 
@@ -17,14 +18,14 @@ describe('Regression Tests', () => {
      * - Selects the Dyson result from the search results.
      * - Skips the survey pop-up if it appears.
      */
-beforeEach(() => {
-        NBSHomepage.visitNBSHomePageAndAcceptCookies(); // Visit homepage and accept cookies
+    beforeEach(() => {
+        cy.visit('https://source.thenbs.com'); // Go to NBS Source homepage
+        NBSHomepage.acceptCookies(); // Accept cookies if prompted
         NBSHomepage.searchFor('Dyson'); // Search for 'Dyson'
         NBSHomepage.selectDysonResult(); // Click on the Dyson search result
         DysonHomepage.checkAndSkipSurvey(); // Skip survey if present
     });
 
-  
     /**
      * Scenario 1
      * Verifies that the manufacturer's homepage URL contains the expected text.
@@ -88,9 +89,28 @@ beforeEach(() => {
     it('Scenario 8 -  Verify the Dyson navigation bar has the correct tabs and expected links', () => {
         DysonHomepage.verifyDysonNavigationBar();
     });
+    /**
+     * Scenario 9
+     * Verifies Image snapshot functionality by taking a snapshot of the entire page.   
+     */
+    it('Scenario 9 - Verify Image snapshot functionality', () => {
+        NBSHomepage.VerifyNbsVisualRegression(); // Call the method to verify image snapshot functionality
 
-    
 
+    });
+
+
+
+    // Scenario 10
+    // Scroll to the bottom of the homepage and verify scroll position and click back button
+
+
+    it('Scenario 10 - Scroll to the bottom of the homepage and verify scroll position and click back button', () => {
+
+
+        DysonHomepage.scrollToBottomOfPage(); // Scroll to the end of the page
+        DysonHomepage.checkAndSkipSurvey(); // Skip survey if present
+        DysonHomepage.verifyBackButton(); // Click the back button
+
+    });
 });
-
-

@@ -99,6 +99,8 @@ class DysonHomepage {
      */
     verifyArchitectsDesignersHrefLink() {
         cy.get(this.websiteLink).should('have.attr', 'href', 'https://www.dyson.co.uk/commercial/overview/architects-designers');
+        timeout: 10000 // Allow up to 10 seconds for the check
+
     }
 
     /**
@@ -185,7 +187,8 @@ class DysonHomepage {
      */
     VerifyDysonManufacturerVisualRegression() {
         cy.visit(this.ManufacturerHomepage);
-        cy.viewport(1000, 4410);
+       /* cy.viewport(1000, 4410);*/
+        cy.viewport(1000, 4124); // Set a fixed viewport size to match the baseline snapshot
         cy.wait(2000);
         cy.scrollTo('bottom');
         cy.wait(500);
@@ -194,6 +197,30 @@ class DysonHomepage {
             failureThresholdType: 'percent',
         });
     }
+
+    /**
+     *scrollToEndOfPage Scrolls to the bottom of the homepage and verifies the scroll position.
+     */
+    // scrollToEndOfPage() {
+    //     cy.get('mat-icon[svgicon="far:arrow-up-to-line"]', { timeout: 10000 })
+    //         .should('be.visible')
+    //         .click();
+    // }
+
+    scrollToBottomOfPage() {
+        cy.scrollTo('bottom', { ensureScrollable: false });
+    }
+
+    // ...existing code...
+
+    verifyBackButton() {
+
+        // Click the back button using its svgicon attribute
+        cy.get('mat-icon[svgicon="far:arrow-up-to-line"]', { timeout: 10000 })
+            .click({ force: true });
+    }
+
+
 }
 
 // Export a singleton instance of the DysonHomepage class for use

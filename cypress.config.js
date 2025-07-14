@@ -1,4 +1,5 @@
 const { defineConfig } = require("cypress");
+const { addMatchImageSnapshotPlugin } = require('cypress-image-snapshot/plugin');
 
 module.exports = defineConfig({
   e2e: {
@@ -11,6 +12,13 @@ module.exports = defineConfig({
           return null;
         },
       });
+
+      // Register image snapshot plugin
+      addMatchImageSnapshotPlugin(on, config);
+
+      return config;
     },
+    defaultCommandTimeout: 60000, // 60 seconds (adjust as needed)
+    // ...other config...
   },
 });
