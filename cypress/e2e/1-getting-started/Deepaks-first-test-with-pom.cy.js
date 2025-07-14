@@ -1,6 +1,7 @@
 import NBSHomepage from '../../support/page-objects/nbs-homepage';
 import DysonHomepage from '../../support/page-objects/dyson-homepage';
 
+
 /**
  * Regression Tests for Dyson Manufacturer Page
  * 
@@ -88,7 +89,29 @@ describe('Regression Tests', () => {
     it('Scenario 8 -  Verify the Dyson navigation bar has the correct tabs and expected links', () => {
         DysonHomepage.verifyDysonNavigationBar();
     });
+    /**
+     * Scenario 9
+     * Verifies Image snapshot functionality by taking a snapshot of the entire page.   
+     */
+    it('Scenario 9 - Verify Image snapshot functionality', () => {
+        NBSHomepage.VerifyNbsVisualRegression(); // Call the method to verify image snapshot functionality
 
+
+    });
+
+
+
+    // Scenario 10
+    // Scroll to the bottom of the homepage and verify scroll position and click back button
+
+
+    it('Scenario 10 - Scroll to the bottom of the homepage and verify scroll position and click back button', () => {
+
+
+        DysonHomepage.scrollToBottomOfPage(); // Scroll to the end of the page
+        DysonHomepage.checkAndSkipSurvey(); // Skip survey if present
+        DysonHomepage.verifyBackButton(); // Click the back button
+
+    });
 });
-
 
