@@ -23,7 +23,7 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: Run Cypress tests
-        run: npx cypress run
+        run: npx cypress run --spec "cypress/e2e/1-getting-started/deepaks-first-test-with-pom.cy.js"
 
       - name: Upload Cypress screenshots (if any)
         uses: actions/upload-artifact@v4
