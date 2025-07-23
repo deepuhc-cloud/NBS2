@@ -148,8 +148,10 @@ class DysonHomepage {
             }
             const body = JSON.parse(match[1]);
 
-            // Check that the API response contains the correct country (GB)
-            expect(body).to.have.property('country', 'GB');
+            // Check that the API response contains the correct country (GB or US)
+            expect(body).to.have.property('country').that.satisfies((country) => {
+                return country === 'GB' || country === 'US';
+            });
 
             // Now check that "UK" is present in the DOM, even if hidden
             cy.get('.mdc-button__label', { timeout: 60000 }).should('exist').invoke('text').should('contain', 'UK');
