@@ -10,6 +10,7 @@
   "author": "Deepak",
   "license": "ISC",
   "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^22.2.0",
     "axe-core": "^4.10.3",
     "cypress": "^14.4.1",
     "cypress-axe": "^1.6.0",
