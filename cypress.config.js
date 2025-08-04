@@ -1,9 +1,12 @@
 const { defineConfig } = require("cypress");
 const { addMatchImageSnapshotPlugin } = require('cypress-image-snapshot/plugin');
+const createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
+const { addCucumberPreprocessorPlugin } = require("@badeball/cypress-cucumber-preprocessor");
+const { createEsbuildPlugin } = require("@badeball/cypress-cucumber-preprocessor/esbuild");
 
 module.exports = defineConfig({
   e2e: {
-    setupNodeEvents(on, config) {
+    async setupNodeEvents(on, config) {
       // Register the 'log' task so cy.task('log', ...) works
       on('task', {
         log(message) {
@@ -16,9 +19,19 @@ module.exports = defineConfig({
       // Register image snapshot plugin
       addMatchImageSnapshotPlugin(on, config);
 
+      // Add Cucumber preprocessor plugin
+      await addCucumberPreprocessorPlugin(on, config);
+
+      on(
+        "file:preprocessor",
+        createBundler({
+          plugins: [createEsbuildPlugin(config)],
+        })
+      );
+
       return config;
     },
     defaultCommandTimeout: 60000, // 60 seconds (adjust as needed)
-    // ...other config...
+    specPattern: "cypress/e2e/**/*.feature", // Tell Cypress to look for .feature files
   },
 });
