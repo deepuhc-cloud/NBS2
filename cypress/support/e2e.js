@@ -17,6 +17,7 @@
 import './commands'
 import 'cypress-axe';
 import { addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command';
+import '@badeball/cypress-cucumber-preprocessor/support';
 addMatchImageSnapshotCommand();
 Cypress.on('uncaught:exception', (err, runnable) => {
   return false;
