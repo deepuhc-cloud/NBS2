@@ -1,6 +1,7 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
+  projectId: 'ugue9q',
   e2e: {
     setupNodeEvents(on, config) {
       // Load plugins from cypress/plugins/index.js
